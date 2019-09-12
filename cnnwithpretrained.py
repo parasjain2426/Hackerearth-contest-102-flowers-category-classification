@@ -29,7 +29,7 @@ from keras.models import Model
 from keras import backend as K
 
 from keras.layers import Input
-IMG_SHAPE = (250, 250, 3)
+IMG_SHAPE = (250, 250, 3) # used 250x250 pixel size of image and got 80% accuracy.
 VGG16_MODEL=tf.keras.applications.VGG16(input_shape=IMG_SHAPE,
                                                include_top=False,
                                                weights='imagenet')
@@ -85,11 +85,10 @@ for i in range(18540,20549):
   data1=[]
   data=[]
 
-#predicted=np.stack(predicted)
-c = np.savetxt('/content/drive/My Drive/Datasets/testnew.csv', predicted,fmt='%.2f', delimiter =', ')
-
 predicted=np.stack(predicted)
 predicted.shape
+#predicted=np.stack(predicted)
+c = np.savetxt('/content/drive/My Drive/Datasets/testnew.csv', predicted,fmt='%.2f', delimiter =', ')
 
 from google.colab import drive
 drive.mount('/content/drive')
